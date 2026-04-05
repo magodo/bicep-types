@@ -32,7 +32,8 @@ func main() {
 	if *outputFile == "" {
 		output = os.Stdout
 	} else {
-		output, err := os.Create(*outputFile)
+		var err error
+		output, err = os.Create(*outputFile)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Error creating output file: %v\n", err)
 			os.Exit(1)
